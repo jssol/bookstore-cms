@@ -7,9 +7,9 @@ const App = () => (
   <>
     <Header />
     <Routes>
-      <Route path="/" element={<Books />} />
-      <Route path="/bookstore-cms" element={<Books />} />
-      <Route path="/books" element={<Books />} />
+      <Route exact path="/" element={<Books />} />
+      <Route exact path="/bookstore-cms" element={<Books />} />
+      <Route exact path="/books" element={<Books />} />
       <Route path="/categories" element={<Categories />} />
     </Routes>
   </>
