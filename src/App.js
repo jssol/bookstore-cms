@@ -1,14 +1,16 @@
 import { Routes, Route } from 'react-router-dom';
-import './scss/App.scss';
+import Header from './components/Header';
+import Books from './components/Books';
+import Categories from './components/Categories';
 
-function App() {
-  return (
-    <>
-      <Routes>
-        <Route path="/" element={<h1 className="text-8xl font-bold text-red-500 text-center">Works</h1>} />
-      </Routes>
-    </>
-  );
-}
+const App = () => (
+  <>
+    <Header />
+    <Routes>
+      <Route path="/books" element={<Books />} />
+      <Route path="/categories" element={<Categories />} />
+    </Routes>
+  </>
+);
 
 export default App;
