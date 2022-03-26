@@ -1,11 +1,18 @@
-import './scss/App.scss';
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Books from './components/Books';
+import Categories from './components/Categories';
 
-function App() {
-  return (
-    <>
-      <h1 className="text-8xl font-bold text-red-500 text-center">Works</h1>
-    </>
-  );
-}
+const App = () => (
+  <>
+    <Header />
+    <Routes>
+      <Route exact path="/" element={<Books />} />
+      <Route exact path="/bookstore-cms" element={<Books />} />
+      <Route exact path="/books" element={<Books />} />
+      <Route path="/categories" element={<Categories />} />
+    </Routes>
+  </>
+);
 
 export default App;
