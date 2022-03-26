@@ -1,5 +1,5 @@
-const Books = () => (
-  <h1>Books</h1>
+const Book = () => (
+  <h1>Book</h1>
 );
 
-export default Books;
+export default Book;
