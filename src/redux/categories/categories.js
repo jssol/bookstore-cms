@@ -1,5 +1,5 @@
 // Action types
-const CHECKING_STATUS   = 'bookstore/categories/CHECKING_STATUS';
+const CHECKING_STATUS = 'bookstore/categories/CHECKING_STATUS';
 
 // Reducer
 const reducer = (state = [], action) => {
@@ -11,9 +11,7 @@ const reducer = (state = [], action) => {
 };
 
 // Action Creators
-const checkStatus = () => {
-  return { type: CHECKING_STATUS };
-};
+const checkStatus = () => ({ type: CHECKING_STATUS });
 
 export { checkStatus };
 export default reducer;
