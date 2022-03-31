@@ -1,5 +1,5 @@
 // Action types
-const ADDED_BOOK   = 'bookstore/books/ADDED_BOOK';
+const ADDED_BOOK = 'bookstore/books/ADDED_BOOK';
 const REMOVED_BOOK = 'bookstore/books/REMOVED_BOOK';
 
 // Reducer
@@ -9,27 +9,23 @@ const reducer = (state = [], action) => {
       return [
         ...state,
         {
-          title: payload.title,
-          author: payload.author,
-          id: payload.id
-        }
-      ]
+          title: action.book.title,
+          author: action.book.author,
+          id: action.book.id,
+        },
+      ];
     case REMOVED_BOOK:
       return [
-        ...state.filter((book) => book.id !== payload.id)
-      ]
+        ...state.filter((book) => book.id !== action.book.id),
+      ];
     default: return state;
   }
 };
 
 // Action Creators
-const addBook = (book) => {
-  return { type: ADDED_BOOK, payload: book };
-};
+const addBook = (book) => ({ type: ADDED_BOOK, book });
 
-const removeBook = (book) => {
-  return { type: REMOVED_BOOK, payload: book };
-};
+const removeBook = (book) => ({ type: REMOVED_BOOK, book });
 
 export { addBook, removeBook };
 export default reducer;
