@@ -1,11 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { removeBook } from '../redux/books/books';
 
 const Book = (props) => {
+  const dispatch = useDispatch();
   const { book } = props;
   const {
     author, title, categorie, progress, chapter: { number, name },
   } = book;
+
+  const handleRemove = () => {
+    dispatch(removeBook(book));
+  };
+
   return (
     <div className="w-full flex items-center justify-between py-4 px-5 bg-white rounder-md">
       <div className="flex flex-col">
@@ -14,7 +22,7 @@ const Book = (props) => {
         <p className="text-sm text-blue-400">{author}</p>
         <div className="flex items-center my-2">
           <button className="text-sm text-blue-400 pr-2" type="button">Comments</button>
-          <button className="text-sm text-blue-400 px-2" type="button">Remove</button>
+          <button className="text-sm text-blue-400 px-2" type="button" onClick={handleRemove}>Remove</button>
           <button className="text-sm text-blue-400 pl-2" type="button">Edit</button>
         </div>
       </div>
