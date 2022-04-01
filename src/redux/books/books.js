@@ -9,8 +9,7 @@ const initialState = [
   {
     author: 'Frank Herbert',
     title: 'Dune',
-    categorie: 'science-fiction',
-    status: 'Completed',
+    categorie: 'Science Fiction',
     progress: '8',
     chapter: {
       number: 'Chapter 3:',
@@ -21,10 +20,10 @@ const initialState = [
   {
     author: 'Suzanne Collins',
     title: 'The Hunger Games',
-    categorie: 'action',
+    categorie: 'Action',
     progress: '64',
     chapter: {
-      number: 'Chapter 17:',
+      number: 'Chapter 17',
       name: '',
     },
     id: uuidv4(),
