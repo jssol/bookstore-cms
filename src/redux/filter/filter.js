@@ -19,5 +19,5 @@ const reducer = (state = visibilityFilters.SHOW_ALL, action) => {
   }
 };
 
-export { setVisibilityFilter };
+export { setVisibilityFilter, visibilityFilters };
 export default reducer;
