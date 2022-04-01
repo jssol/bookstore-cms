@@ -37,8 +37,11 @@ const reducer = (state = initialState, action) => {
       return [
         ...state,
         {
-          title: action.book.title,
           author: action.book.author,
+          title: action.book.title,
+          categorie: action.book.categorie,
+          progress: action.book.progress,
+          chapter: action.book.chapter,
           id: action.book.id,
         },
       ];
