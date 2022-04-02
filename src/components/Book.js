@@ -56,7 +56,7 @@ const Book = (props) => {
 };
 
 Book.propTypes = {
-  book: PropTypes.shape.isRequired,
+  book: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default Book;
