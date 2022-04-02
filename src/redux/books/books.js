@@ -17,8 +17,8 @@ const reducer = (state = initialState, action) => {
         const book = action.books[key][0];
         book.item_id = key;
         book.chapter = {
-          number: '',
-          name: '',
+          number: 'Chapter 0',
+          name: 'Introduction',
         };
         book.progress = 0;
         books.push(book);
