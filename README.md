@@ -2,6 +2,10 @@
 
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
+## Screenshot
+
+![](./screenshot.png)
+
 ## Built With
 
 - Sass, HTML5
