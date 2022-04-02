@@ -1,23 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/books';
+import { removeBookFromApi } from '../redux/books/books';
 
 const Book = (props) => {
   const dispatch = useDispatch();
   const { book } = props;
   const {
-    author, title, categorie, progress, chapter: { number, name },
+    author, title, category, progress, chapter: { number, name },
   } = book;
 
   const handleRemove = () => {
-    dispatch(removeBook(book));
+    dispatch(removeBookFromApi(book));
   };
 
   return (
     <div className="w-full flex items-center justify-between py-4 px-5 bg-white rounder-md">
       <div className="flex flex-col">
-        <p className="text-xs font-semibold text-gray-600">{categorie}</p>
+        <p className="text-xs font-semibold text-gray-600">{category}</p>
         <p className="font-bold text-gray-800">{title}</p>
         <p className="text-sm text-blue-400">{author}</p>
         <div className="flex items-center my-2">
