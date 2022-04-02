@@ -22,9 +22,9 @@ const Book = (props) => {
         <p className="font-bold text-gray-800">{title}</p>
         <p className="text-sm text-blue-400">{author}</p>
         <div className="flex items-center my-2">
-          <button className="text-sm text-blue-400 pr-2 book-buttons" type="button">Comments</button>
-          <button className="text-sm text-blue-400 px-2 book-buttons" type="button" onClick={handleRemove}>Remove</button>
-          <button className="text-sm text-blue-400 pl-2 book-buttons" type="button">Edit</button>
+          <button className="text-sm text-blue-400 pr-3 book-buttons" type="button">Comments</button>
+          <button className="text-sm text-blue-400 px-3 book-buttons" type="button" onClick={handleRemove}>Remove</button>
+          <button className="text-sm text-blue-400 pl-3 book-buttons" type="button">Edit</button>
         </div>
       </div>
       <div className="flex items-center book-progress">
@@ -41,7 +41,7 @@ const Book = (props) => {
           Completed
         </p>
       </div>
-      <div className="px-16 book-status">
+      <div className="pl-16 pr-20 book-status">
         <p className="text-md text-gray-400">CURRENT CHAPTER</p>
         <p className="my-1 text-gray-600">
           {number}
