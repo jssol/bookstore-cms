@@ -1,3 +1,14 @@
+.book-container {
+  display: grid;
+  grid-template-columns: 35vw 12vw auto;
+  grid-template-rows: repeat(1, auto);
+  column-gap: auto;
+}
+
+.book-buttons + .book-buttons {
+  border-left: 1px solid rgb(89, 136, 236);
+}
+
 .book-status {
   position: relative;
 }
@@ -6,9 +17,9 @@
   position: absolute;
   content: '';
   left: 0;
-  height: 50%;
+  height: 65%;
   width: 2px;
-  background-color: rgb(78, 127, 232);
+  background-color: #ddd;
   top: 50%;
   transform: translateY(-50%);
 }
