@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { addBook } from '../redux/books/books';
+import { addBookToApi } from '../redux/books/books';
 
 const book = {
   author: '',
   title: '',
-  categorie: 'Unknown',
+  category: 'Unknown',
   progress: '0',
   chapter: {
     number: 'Chapter 0',
     name: 'Introduction',
   },
-  id: uuidv4(),
+  item_id: uuidv4(),
 };
 
 const Form = () => {
@@ -30,7 +30,7 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addBook(state));
+    dispatch(addBookToApi(state));
     setState((state) => ({
       ...state,
       ...book,

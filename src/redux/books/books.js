@@ -1,52 +1,38 @@
-import { v4 as uuidv4 } from 'uuid';
-
 // Action types
 const ADDED_BOOK = 'bookstore/books/ADDED_BOOK';
 const REMOVED_BOOK = 'bookstore/books/REMOVED_BOOK';
+const GOT_BOOKS = 'bookstore/books/GOT_BOOKS';
+
+const apiAppId = 'nHPycyXK8r6FNvXPrYKo';
 
 // Reducer
-const initialState = [
-  {
-    author: 'Frank Herbert',
-    title: 'Dune',
-    categorie: 'Science Fiction',
-    progress: '8',
-    chapter: {
-      number: 'Chapter 3:',
-      name: '"A Lesson Learned"',
-    },
-    id: uuidv4(),
-  },
-  {
-    author: 'Suzanne Collins',
-    title: 'The Hunger Games',
-    categorie: 'Action',
-    progress: '64',
-    chapter: {
-      number: 'Chapter 17',
-      name: '',
-    },
-    id: uuidv4(),
-  },
-];
+const initialState = [];
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case GOT_BOOKS:
+    {
+      const books = [];
+      Object.keys(action.books).forEach((key) => {
+        const book = action.books[key][0];
+        book.item_id = key;
+        book.chapter = {
+          number: '',
+          name: '',
+        };
+        book.progress = 0;
+        books.push(book);
+      });
+      return books;
+    }
     case ADDED_BOOK:
       return [
         ...state,
-        {
-          author: action.book.author,
-          title: action.book.title,
-          categorie: action.book.categorie,
-          progress: action.book.progress,
-          chapter: action.book.chapter,
-          id: action.book.id,
-        },
+        action.book,
       ];
     case REMOVED_BOOK:
       return [
-        ...state.filter((book) => book.id !== action.book.id),
+        ...state.filter((book) => book.item_id !== action.book.item_id),
       ];
     default: return state;
   }
@@ -57,5 +43,38 @@ const addBook = (book) => ({ type: ADDED_BOOK, book });
 
 const removeBook = (book) => ({ type: REMOVED_BOOK, book });
 
-export { addBook, removeBook };
+const getBooks = (books) => ({ type: GOT_BOOKS, books });
+
+// Async Actions
+const getBooksFromApi = () => async (dispatch) => {
+  await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${apiAppId}/books`)
+    .then((data) => data.json())
+    .then((books) => dispatch(getBooks(books)));
+};
+
+const addBookToApi = (book) => async (dispatch) => {
+  await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${apiAppId}/books`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(book),
+  })
+    .then(() => dispatch(addBook(book)));
+};
+
+const removeBookFromApi = (book) => async (dispatch) => {
+  await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${apiAppId}/books/${book.item_id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ item_id: book.item_id }),
+  })
+    .then(() => dispatch(removeBook(book)));
+};
+
+export {
+  getBooksFromApi, addBookToApi, removeBookFromApi,
+};
 export default reducer;
