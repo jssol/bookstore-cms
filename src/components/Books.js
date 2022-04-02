@@ -4,10 +4,6 @@ import { getBooksFromApi } from '../redux/books/books';
 import Form from './Form';
 import Book from './Book';
 
-document.addEventListener('DOMContentLoaded', () => {
-
-});
-
 const Books = () => {
   const dispatch = useDispatch();
   useEffect(() => {
