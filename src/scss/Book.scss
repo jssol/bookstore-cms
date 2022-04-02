@@ -3,6 +3,7 @@
   grid-template-columns: 35vw 12vw auto;
   grid-template-rows: repeat(1, auto);
   column-gap: auto;
+  border: 1px solid #e8e8e8;
 }
 
 .book-buttons + .book-buttons {
