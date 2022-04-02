@@ -1,0 +1,27 @@
+.booklist {
+  max-height: 60vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.booklist::-webkit-scrollbar {
+  width: 8px;
+}
+
+.booklist::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.booklist::-webkit-scrollbar-thumb {
+  background-color: rgb(78, 127, 232);
+  border-radius: 4px;
+  transition: all ease-out 150ms;
+}
+
+.booklist::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(59, 114, 235);
+}
+
+.booklist::-webkit-scrollbar-thumb:active {
+  background-color: rgb(37, 99, 235);
+}
