@@ -1,0 +1,14 @@
+.book-status {
+  position: relative;
+}
+
+.book-status::after {
+  position: absolute;
+  content: '';
+  left: 0;
+  height: 50%;
+  width: 2px;
+  background-color: rgb(78, 127, 232);
+  top: 50%;
+  transform: translateY(-50%);
+}
