@@ -4,11 +4,16 @@ import { v4 as uuidv4 } from 'uuid';
 import { addBookToApi } from '../redux/books/books';
 import '../scss/Form.scss';
 
+const getProgress = (min = 0, max = 100) => {
+  const progress = Math.floor(Math.random() * (max - min + 1) + min);
+  return progress;
+};
+
 const book = {
   author: '',
   title: '',
   category: 'Unknown',
-  progress: '0',
+  progress: `${getProgress()}`,
   chapter: {
     number: 'Chapter 0',
     name: 'Introduction',
